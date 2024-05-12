@@ -93,5 +93,23 @@ async function init() {
 
 init();
 
-
+async function fetchDataAndFillDropdown(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const dropdown = document.getElementById('dataDropdown');
+        data.forEach(item => {
+            let option = document.createElement('option');
+            option.value = item.id;  // Nehmen wir an, dass `id` ein eindeutiger Wert für jedes Item ist
+            option.textContent = item.name; // `name` ist der anzuzeigende Text
+            dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Fehler beim Laden der Daten:', error);
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const url = "https://567003-2.web.fhgr.ch/PHP/unload.php"; // Deine Daten-URL
+    fetchDataAndFillDropdown(url);
+});
 
