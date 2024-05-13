@@ -50,7 +50,7 @@ console.log("test");
 let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
 let data;
 
-async function fetchData(url) {
+/*async function fetchData(url) {
     try {
         let response = await fetch(url);
         let data = await response.json();
@@ -97,6 +97,33 @@ async function init() {
 }
 
 init();
+*/
+async function init() {
+    let data = await fetchData(url);
+    console.log(data);
 
+    // Bereite die Dropdown-Menüs vor
+    const currencyDropdown = document.getElementById('currencyDropdown');
+    const dateDropdown = document.getElementById('dateDropdown');
+
+    // Lösche vorhandene Einträge in den Dropdowns
+    currencyDropdown.innerHTML = '';
+    dateDropdown.innerHTML = '';
+
+    // Fülle die Dropdown-Menüs mit Daten
+    data.forEach(entry => {
+        // Füge jede Währung zum Währungsdropdown hinzu
+        let currencyOption = document.createElement('option');
+        currencyOption.value = entry.currency;
+        currencyOption.textContent = entry.currency;
+        currencyDropdown.appendChild(currencyOption);
+
+        // Füge jedes Erstellungsdatum zum Datumsdropdown hinzu
+        let dateOption = document.createElement('option');
+        dateOption.value = entry.created_at;
+        dateOption.textContent = entry.created_at;
+        dateDropdown.appendChild(dateOption);
+    });
+}
 
 
