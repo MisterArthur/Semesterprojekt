@@ -1,51 +1,3 @@
-// // Best Practice:
-// // - Fetch in eine Funktion packen
-// // - Fetch asynchron ausführen
-
-// console.log ("Hello world");
-// let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
-// let data;
-
-//  async function fetchData(url) {
-//     try {
-//         let response = await fetch(url);
-//         let data = await response.json();
-//         return data;
-//     }
-//     catch (error) {
-//         console.log(error);
-//     }
-// }
-
-// fetchData(url);
-
-// async function init() {
-//     let response = await fetch (url);
-//     data = await response.json();
-//     console.log(data);
-// }
-// init();
-
-// const rates_Chart = document.querySelector('#rates_Chart');
-
-//   new Chart(rates_Chart, {
-//     type: 'line',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
 console.log("test");
 let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
 let data;
@@ -55,51 +7,13 @@ async function fetchData(url) {
         let response = await fetch(url);
         let data = await response.json();
         return data;
-    }
-    catch (error) {
+    } catch (error) {
         console.log(error);
     }
 }
 
 async function init() {
     data = await fetchData(url);
-    console.log(data);
-
-    // Extrahiere Labels, Daten und Währungscodes aus den abgerufenen Daten
-    let labels = data.map(entry => entry.currency + ' (' + entry.created_at + ')'); // Währung + Erstellungsdatum
-    let rates = data.map(entry => parseFloat(entry.rate)); // Konvertiere Rate in Float
-
-    // ToDo: Dropdown einfügen (im Sytlesheet denke ich) welches entry.currency darstellt (for schlaufe in JS)
-    // Aufgrund einschränkungen der API, Wechselkurs umrechnen (z.B. Yen = 10, (1 Euro = 10 Yen) heisst Yen hat rechenwert von 0.1)
-    // Dann Rechenwert vergleichen und darstellen (rechenwertKurs1 * rechenwertKurs2 = Wechselkurs zwischen den beiden Kursen)
-    // Evtl. Beide Kurse auf dem Graph vergleichen (wenn möglich) 
-    // Andere Datenabfrage via API checken für History Daten. Via PHP diese History Daten abfragen. Dann via JS das Graph Script mit den Daten füttern.
-    const rates_Chart = document.querySelector('#rates_Chart');
-
-    new Chart(rates_Chart, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Wechselkurs',
-                data: rates,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-}
-
-init();
-
-async function init() {
-    let data = await fetchData(url);
     console.log(data);
 
     const currencyDropdown1 = document.getElementById('currencyDropdown1');
@@ -142,7 +56,7 @@ async function init() {
         }
     });
 
-    compareButton.addEventListener('click', () => {
+    compareButton.addEventListener('click', async () => {
         const selectedCurrency1 = currencyDropdown1.value;
         const selectedCurrency2 = currencyDropdown2.value;
         const selectedDate = dateDropdown.value;
@@ -177,19 +91,63 @@ async function init() {
             }
         });
 
-       // Anzeige der Wechselkurse als Text unter dem Diagramm
-if (filteredData1.length && filteredData2.length) {
-    const bigMacPriceUSD = 5.69;
-    let rate1 = parseFloat(filteredData1[0].rate);
-    let rate2 = parseFloat(filteredData2[0].rate);
-    let percentBigMac1 = ((1 / rate1) * bigMacPriceUSD).toFixed(2);
-    let percentBigMac2 = ((1 / rate2) * bigMacPriceUSD).toFixed(2);
+        // Anzeige der Wechselkurse als Text unter dem Diagramm und Erstellen von Kuchendiagrammen
+        if (filteredData1.length && filteredData2.length) {
+            const bigMacPriceUSD = 5.69;
+            let rate1 = parseFloat(filteredData1[0].rate);
+            let rate2 = parseFloat(filteredData2[0].rate);
+            let percentBigMac1 = ((1 / rate1) * bigMacPriceUSD).toFixed(2);
+            let percentBigMac2 = ((1 / rate2) * bigMacPriceUSD).toFixed(2);
 
-    exchangeRateDisplay.innerHTML = `1 ${selectedCurrency1} = ${rate1} USD (${percentBigMac1}% eines Big Macs)<br>1 ${selectedCurrency2} = ${rate2} USD (${percentBigMac2}% eines Big Macs)`;
-} else {
-    exchangeRateDisplay.innerHTML = 'Wechselkurse nicht verfügbar.';
-}
+            exchangeRateDisplay.innerHTML = `1 ${selectedCurrency1} = ${rate1} USD (${percentBigMac1}% eines Big Macs)<br>1 ${selectedCurrency2} = ${rate2} USD (${percentBigMac2}% eines Big Macs)`;
+
+            // Kuchendiagramme zeichnen
+            const bigMacChart1 = document.getElementById('bigMacChart1').getContext('2d');
+            const bigMacChart2 = document.getElementById('bigMacChart2').getContext('2d');
+
+            // Daten für die Kuchendiagramme
+            const data1 = {
+                labels: ['Prozent eines Big Macs', 'Rest'],
+                datasets: [{
+                    data: [percentBigMac1, 100 - percentBigMac1],
+                    backgroundColor: ['#FF6384', '#DDDDDD']
+                }]
+            };
+
+            const data2 = {
+                labels: ['Prozent eines Big Macs', 'Rest'],
+                datasets: [{
+                    data: [percentBigMac2, 100 - percentBigMac2],
+                    backgroundColor: ['#36A2EB', '#DDDDDD']
+                }]
+            };
+
+            // Optionen für die Kuchendiagramme
+            const options = {
+                responsive: false,
+                maintainAspectRatio: true
+            };
+
+            // Erstellen der Kuchendiagramme
+            new Chart(bigMacChart1, {
+                type: 'pie',
+                data: data1,
+                options: options
+            });
+
+            new Chart(bigMacChart2, {
+                type: 'pie',
+                data: data2,
+                options: options
+            });
+        } else {
+            exchangeRateDisplay.innerHTML = 'Wechselkurse nicht verfügbar.';
+        }
     });
 }
 
 init();
+
+
+
+
