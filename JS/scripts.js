@@ -50,7 +50,7 @@ console.log("test");
 let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
 let data;
 
-/*async function fetchData(url) {
+async function fetchData(url) {
     try {
         let response = await fetch(url);
         let data = await response.json();
@@ -97,33 +97,73 @@ async function init() {
 }
 
 init();
-*/
+
 async function init() {
     let data = await fetchData(url);
     console.log(data);
 
-    // Bereite die Dropdown-Menüs vor
-    const currencyDropdown = document.getElementById('currencyDropdown');
+    // Dropdown-Menüs vorbereiten
+    const currencyDropdown1 = document.getElementById('currencyDropdown1');
+    const currencyDropdown2 = document.getElementById('currencyDropdown2');
     const dateDropdown = document.getElementById('dateDropdown');
+    const resultDiv = document.getElementById('result');
+    const compareButton = document.getElementById('compareButton');
 
     // Lösche vorhandene Einträge in den Dropdowns
-    currencyDropdown.innerHTML = '';
+    currencyDropdown1.innerHTML = '';
+    currencyDropdown2.innerHTML = '';
     dateDropdown.innerHTML = '';
+
+    // Ein Set, um Duplikate von Währungen und Daten zu vermeiden
+    const currencies = new Set();
+    const dates = new Set();
 
     // Fülle die Dropdown-Menüs mit Daten
     data.forEach(entry => {
-        // Füge jede Währung zum Währungsdropdown hinzu
-        let currencyOption = document.createElement('option');
-        currencyOption.value = entry.currency;
-        currencyOption.textContent = entry.currency;
-        currencyDropdown.appendChild(currencyOption);
+        if (!currencies.has(entry.currency)) {
+            currencies.add(entry.currency);
+            let option1 = document.createElement('option');
+            option1.value = entry.currency;
+            option1.textContent = entry.currency;
+            currencyDropdown1.appendChild(option1);
 
-        // Füge jedes Erstellungsdatum zum Datumsdropdown hinzu
-        let dateOption = document.createElement('option');
-        dateOption.value = entry.created_at;
-        dateOption.textContent = entry.created_at;
-        dateDropdown.appendChild(dateOption);
+            let option2 = document.createElement('option');
+            option2.value = entry.currency;
+            option2.textContent = entry.currency;
+            currencyDropdown2.appendChild(option2);
+        }
+
+        if (!dates.has(entry.created_at)) {
+            dates.add(entry.created_at);
+            let dateOption = document.createElement('option');
+            dateOption.value = entry.created_at;
+            dateOption.textContent = entry.created_at;
+            dateDropdown.appendChild(dateOption);
+        }
+    });
+
+    // Hinzufügen eines Event-Listeners zum Vergleichsbutton
+    compareButton.addEventListener('click', () => {
+        const selectedCurrency1 = currencyDropdown1.value;
+        const selectedCurrency2 = currencyDropdown2.value;
+        const selectedDate = dateDropdown.value;
+
+        // Finde die entsprechenden Daten für die ausgewählten Währungen am gewählten Datum
+        let rate1 = data.find(entry => entry.currency === selectedCurrency1 && entry.created_at === selectedDate)?.rate;
+        let rate2 = data.find(entry => entry.currency === selectedCurrency2 && entry.created_at === selectedDate)?.rate;
+
+        // Anzeige der Ergebnisse
+        if (rate1 && rate2) {
+            resultDiv.innerHTML = `Wechselkurs am ${selectedDate}:<br>
+                                   1 ${selectedCurrency1} = ${rate1} USD<br>
+                                   1 ${selectedCurrency2} = ${rate2} USD`;
+        } else {
+            resultDiv.innerHTML = 'Für das gewählte Datum sind keine Daten für eine oder beide Währungen verfügbar.';
+        }
     });
 }
+
+init();
+
 
 
