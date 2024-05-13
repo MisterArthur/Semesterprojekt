@@ -28,7 +28,7 @@ header .container h1, header .container h2 {
 
 /* Hauptinhalt */
 main {
-    background-color: #473cbe; /* Hintergrundfarbe des Hauptinhalts */
+    background-color: white; /* Hintergrundfarbe des Hauptinhalts */
     padding: 20px 0;
 }
 

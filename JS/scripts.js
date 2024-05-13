@@ -107,6 +107,7 @@ async function init() {
     const dateDropdown = document.getElementById('dateDropdown');
     const compareButton = document.getElementById('compareButton');
     const chartContainer = document.getElementById('rates_Chart');
+    const exchangeRateDisplay = document.getElementById('exchangeRateDisplay');
 
     // Initialisiere das Chart-Objekt
     let chart;
@@ -175,6 +176,19 @@ async function init() {
                 }
             }
         });
+
+       // Anzeige der Wechselkurse als Text unter dem Diagramm
+if (filteredData1.length && filteredData2.length) {
+    const bigMacPriceUSD = 5.69;
+    let rate1 = parseFloat(filteredData1[0].rate);
+    let rate2 = parseFloat(filteredData2[0].rate);
+    let percentBigMac1 = ((1 / rate1) * bigMacPriceUSD).toFixed(2);
+    let percentBigMac2 = ((1 / rate2) * bigMacPriceUSD).toFixed(2);
+
+    exchangeRateDisplay.innerHTML = `1 ${selectedCurrency1} = ${rate1} USD (${percentBigMac1}% eines Big Macs)<br>1 ${selectedCurrency2} = ${rate2} USD (${percentBigMac2}% eines Big Macs)`;
+} else {
+    exchangeRateDisplay.innerHTML = 'Wechselkurse nicht verfügbar.';
+}
     });
 }
 
