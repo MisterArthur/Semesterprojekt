@@ -1,4 +1,53 @@
-.Titel_P {
+/* .Titel_P {
     color: red;
     font-weight: bold;
+} */
+
+/* Globale Stile */
+body {
+    font-family: 'Arial', sans-serif; /* Moderne Schriftart */
+    margin: 0;
+    padding: 0;
 }
+
+.container {
+    max-width: 1200px; /* Maximalbreite des Inhalts */
+    margin: 0 auto; /* Zentriert den Inhalt */
+    padding: 20px; /* Innenabstand für den Inhalt */
+}
+
+/* Header */
+header {
+    background-color: #94477f; /* Hintergrundfarbe des Headers */
+    padding: 20px 0;
+}
+
+header .container h1, header .container h2 {
+    color: #ffffff; /* Textfarbe der Titel und Untertitel */
+}
+
+/* Hauptinhalt */
+main {
+    background-color: #473cbe; /* Hintergrundfarbe des Hauptinhalts */
+    padding: 20px 0;
+}
+
+/* Abschnitte */
+main section {
+    padding: 40px 0;
+}
+
+main section h2 {
+    color: #ffffff; /* Textfarbe der Abschnittstitel */
+}
+
+/* Footer */
+footer {
+    background-color: #94477f; /* Hintergrundfarbe des Footers */
+    padding: 20px 0;
+}
+
+footer .container p {
+    color: #ffffff; /* Textfarbe des Fußtextes */
+}
+

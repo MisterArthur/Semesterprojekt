@@ -69,6 +69,11 @@ async function init() {
     let labels = data.map(entry => entry.currency + ' (' + entry.created_at + ')'); // Währung + Erstellungsdatum
     let rates = data.map(entry => parseFloat(entry.rate)); // Konvertiere Rate in Float
 
+    // ToDo: Dropdown einfügen (im Sytlesheet denke ich) welches entry.currency darstellt (for schlaufe in JS)
+    // Aufgrund einschränkungen der API, Wechselkurs umrechnen (z.B. Yen = 10, (1 Euro = 10 Yen) heisst Yen hat rechenwert von 0.1)
+    // Dann Rechenwert vergleichen und darstellen (rechenwertKurs1 * rechenwertKurs2 = Wechselkurs zwischen den beiden Kursen)
+    // Evtl. Beide Kurse auf dem Graph vergleichen (wenn möglich) 
+    // Andere Datenabfrage via API checken für History Daten. Via PHP diese History Daten abfragen. Dann via JS das Graph Script mit den Daten füttern.
     const rates_Chart = document.querySelector('#rates_Chart');
 
     new Chart(rates_Chart, {
