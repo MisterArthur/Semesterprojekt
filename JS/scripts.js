@@ -46,7 +46,7 @@
 //       }
 //     }
 //   });
-
+console.log("test");
 let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
 let data;
 
