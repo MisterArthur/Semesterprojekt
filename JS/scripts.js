@@ -102,23 +102,22 @@ async function init() {
     let data = await fetchData(url);
     console.log(data);
 
-    // Dropdown-Menüs vorbereiten
     const currencyDropdown1 = document.getElementById('currencyDropdown1');
     const currencyDropdown2 = document.getElementById('currencyDropdown2');
     const dateDropdown = document.getElementById('dateDropdown');
-    const resultDiv = document.getElementById('result');
     const compareButton = document.getElementById('compareButton');
+    const chartContainer = document.getElementById('rates_Chart');
 
-    // Lösche vorhandene Einträge in den Dropdowns
+    // Initialisiere das Chart-Objekt
+    let chart;
+
     currencyDropdown1.innerHTML = '';
     currencyDropdown2.innerHTML = '';
     dateDropdown.innerHTML = '';
 
-    // Ein Set, um Duplikate von Währungen und Daten zu vermeiden
     const currencies = new Set();
     const dates = new Set();
 
-    // Fülle die Dropdown-Menüs mit Daten
     data.forEach(entry => {
         if (!currencies.has(entry.currency)) {
             currencies.add(entry.currency);
@@ -142,28 +141,41 @@ async function init() {
         }
     });
 
-    // Hinzufügen eines Event-Listeners zum Vergleichsbutton
     compareButton.addEventListener('click', () => {
         const selectedCurrency1 = currencyDropdown1.value;
         const selectedCurrency2 = currencyDropdown2.value;
         const selectedDate = dateDropdown.value;
 
-        // Finde die entsprechenden Daten für die ausgewählten Währungen am gewählten Datum
-        let rate1 = data.find(entry => entry.currency === selectedCurrency1 && entry.created_at === selectedDate)?.rate;
-        let rate2 = data.find(entry => entry.currency === selectedCurrency2 && entry.created_at === selectedDate)?.rate;
+        const filteredData1 = data.filter(entry => entry.currency === selectedCurrency1 && entry.created_at === selectedDate);
+        const filteredData2 = data.filter(entry => entry.currency === selectedCurrency2 && entry.created_at === selectedDate);
 
-        // Anzeige der Ergebnisse
-        if (rate1 && rate2) {
-            resultDiv.innerHTML = `Wechselkurs am ${selectedDate}:<br>
-                                   1 ${selectedCurrency1} = ${rate1} USD<br>
-                                   1 ${selectedCurrency2} = ${rate2} USD`;
-        } else {
-            resultDiv.innerHTML = 'Für das gewählte Datum sind keine Daten für eine oder beide Währungen verfügbar.';
+        // Wenn ein Chart bereits existiert, zerstöre es
+        if (chart) {
+            chart.destroy();
         }
+
+        // Erstelle ein neues Chart als Balkendiagramm
+        chart = new Chart(chartContainer.getContext('2d'), {
+            type: 'bar', // Ändere den Typ von 'line' zu 'bar'
+            data: {
+                labels: [selectedCurrency1, selectedCurrency2], // Ändere die Labels, um die Währungsnamen anzuzeigen
+                datasets: [{
+                    label: 'Wechselkurs am ' + selectedDate,
+                    data: [filteredData1.length ? filteredData1[0].rate : 0, filteredData2.length ? filteredData2[0].rate : 0],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     });
 }
 
 init();
-
-
-
