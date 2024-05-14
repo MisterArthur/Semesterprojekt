@@ -18,6 +18,16 @@ header {
   padding: 20px 0;
 }
 
+header .container {
+  text-align: center;
+  font-weight: bold;
+}
+
+header .container h1 a {
+  text-decoration: none; /* Entfernt die Unterstreichung */
+  color: inherit; /* Erbt die Textfarbe vom übergeordneten Element */
+}
+
 header .container h1, header .container h2 {
   color: #ffffff; /* Textfarbe der Titel und Untertitel Weiß */
 }
