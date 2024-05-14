@@ -1,110 +1,125 @@
-/* .Titel_P {
-    color: red;
-    font-weight: bold;
-} */
-
 /* Globale Stile */
 body {
-    font-family: 'Arial', sans-serif; /* Moderne Schriftart */
-    margin: 0;
-    padding: 0;
+  font-family: 'Arial', sans-serif; /* Moderne Schriftart */
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Haupt-Hintergrundfarbe Weiß */
 }
 
 .container {
-    max-width: 1200px; /* Maximalbreite des Inhalts */
-    margin: 0 auto; /* Zentriert den Inhalt */
-    padding: 20px; /* Innenabstand für den Inhalt */
+  max-width: 1200px; /* Maximalbreite des Inhalts */
+  margin: 0 auto; /* Zentriert den Inhalt */
+  padding: 20px; /* Innenabstand für den Inhalt */
 }
 
 /* Header */
 header {
-    background-color: #94477f; /* Hintergrundfarbe des Headers */
-    padding: 20px 0;
+  background-color: #007BFF; /* Hintergrundfarbe des Headers Blau */
+  padding: 20px 0;
 }
 
 header .container h1, header .container h2 {
-    color: #ffffff; /* Textfarbe der Titel und Untertitel */
+  color: #ffffff; /* Textfarbe der Titel und Untertitel Weiß */
+}
+
+/* Navigation */
+#main-nav {
+  background-color: #007BFF; /* Hintergrundfarbe der Navigation Blau */
+  padding: 10px 0;
+}
+
+#main-nav ul {
+  list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Zentriert die Navigationselemente horizontal */
+}
+
+#main-nav ul li {
+  margin: 0 15px;
+}
+
+#main-nav ul li a {
+  text-decoration: none; /* Entfernt die Standard-Unterstreichung */
+  color: #ffffff; /* Textfarbe der Links Weiß */
+  font-size: 16px; /* Schriftgröße der Links */
+}
+
+#main-nav ul li a:hover {
+  color: #FF0000; /* Textfarbe der Links beim Hover Rot */
 }
 
 /* Hauptinhalt */
 main {
-    background-color: white; /* Hintergrundfarbe des Hauptinhalts */
-    padding: 20px 0;
+  background-color: #ffffff; /* Hintergrundfarbe des Hauptinhalts Weiß */
+  padding: 20px 0;
 }
 
 /* Abschnitte */
 main section {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 
 main section h2 {
-    color: #ffffff; /* Textfarbe der Abschnittstitel */
+  color: #FF0000; /* Textfarbe der Abschnittstitel Rot */
 }
 
 /* Footer */
 footer {
-    background-color: #94477f; /* Hintergrundfarbe des Footers */
-    padding: 20px 0;
+  background-color: #007BFF; /* Hintergrundfarbe des Footers Blau */
+  padding: 20px 0;
 }
 
 footer .container p {
-    color: #ffffff; /* Textfarbe des Fußtextes */
+  color: #ffffff; /* Textfarbe des Fußtextes Weiß */
 }
 
-/* Stil für den Button */
+/* Stil für den Dropdown-Button */
 .dropbtn {
-    background-color: #4caf50;
-    color: white;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Stil für den Dropdown-Inhalt */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Stil für die Dropdown-Optionen */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Ändert die Hintergrundfarbe, wenn der Benutzer die Maus über eine Option bewegt */
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  /* Zeigt den Dropdown-Inhalt, wenn der Benutzer den Button klickt */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Zeigt den Dropdown-Inhalt, wenn der Benutzer über dem Dropdown hovert */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /*Kuchendiagramm */
-  .bigMacChart1 {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  
-  .bigMacChart2 {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  
-  
- 
-  
+  background-color: #FF0000; /* Hintergrundfarbe des Buttons Rot */
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Stil für den Dropdown-Inhalt */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Stil für die Dropdown-Optionen */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Ändert die Hintergrundfarbe, wenn der Benutzer die Maus über eine Option bewegt */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Zeigt den Dropdown-Inhalt, wenn der Benutzer den Button klickt */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Zeigt den Dropdown-Inhalt, wenn der Benutzer über dem Dropdown hovert */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Kuchendiagramme */
+.bigMacChart1, .bigMacChart2 {
+  max-width: 200px; /* Maximalbreite der Kuchendiagramme */
+  max-height: 200px; /* Maximalhöhe der Kuchendiagramme */
+}
