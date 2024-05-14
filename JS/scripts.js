@@ -148,8 +148,19 @@ async function fetchData(url) {
 
 init();
 */
+async function fetchData(url) {
+    try {
+        let response = await fetch(url);
+        let data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 async function init() {
-    data = await fetchData(url);
+    const url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
+    let data = await fetchData(url);
     console.log(data);
 
     const currencyDropdown1 = document.getElementById('currencyDropdown1');
@@ -285,10 +296,5 @@ async function init() {
 }
 
 init();
-
-let rate1 = filteredData1.length ? 1 / parseFloat(filteredData1[0].rate) : 0;
-let rate2 = filteredData2.length ? 1 / parseFloat(filteredData2[0].rate) : 0;
-
-exchangeRateDisplay.innerHTML = `1 ${selectedCurrency1} = ${rate1.toFixed(4)} USD (${percentBigMac1}% eines Big Macs)<br>1 ${selectedCurrency2} = ${rate2.toFixed(4)} USD (${percentBigMac2}% eines Big Macs)`;
 
 
