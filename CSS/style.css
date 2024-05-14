@@ -77,13 +77,13 @@ footer .container p {
 
 /* Stil für den Dropdown-Button */
 .dropbtn {
-  background-color: #FF0000; /* Hintergrundfarbe des Buttons Rot */
+  background-color: #FF0000; 
   color: white;
   padding: 12px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-}
+} 
 
 /* Stil für den Dropdown-Inhalt */
 .dropdown-content {
@@ -123,3 +123,19 @@ footer .container p {
   max-width: 200px; /* Maximalbreite der Kuchendiagramme */
   max-height: 200px; /* Maximalhöhe der Kuchendiagramme */
 }
+
+.chart-container {
+  display: flex; /* Verwende Flexbox, um die Diagramme nebeneinander anzuzeigen */
+  justify-content: space-around; /* Verteile die Diagramme gleichmäßig */
+  padding: 20px 0;
+}
+
+#bigMacChart1, #bigMacChart2 {
+  max-width: 300px; /* Maximalbreite der Kuchendiagramme */
+  max-height: 300px; /* Maximalhöhe der Kuchendiagramme */
+}
+
+#exchangeRateDisplay {
+  padding: 3em;
+}
+
