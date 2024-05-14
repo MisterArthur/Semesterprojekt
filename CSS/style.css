@@ -12,6 +12,17 @@ body {
   padding: 20px; /* Innenabstand für den Inhalt */
 }
 
+/* Neue Klasse für nebeneinander liegende Abschnitte */
+.side-by-side {
+  display: flex;
+  justify-content: space-between; /* Verteilt die Abschnitte mit Platz dazwischen */
+}
+
+.side-by-side section {
+  flex: 1; /* Lässt die Abschnitte gleichmäßig Platz einnehmen */
+  margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
+}
+
 /* Header */
 header {
   background-color: #007BFF; /* Hintergrundfarbe des Headers Blau */
@@ -148,4 +159,3 @@ footer .container p {
 #exchangeRateDisplay {
   padding: 3em;
 }
-
