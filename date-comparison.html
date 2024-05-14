@@ -42,39 +42,47 @@
 </head>
 <body>
     <header>
-        <nav id="main-nav">
-            <ul>
-                <li><a href="index.html">Währungsvergleich</a></li>
-                <li><a href="date-comparison.html">Datumsvergleich</a></li>
-                <li><a href="about-us.html">Über uns</a></li>
-            </ul>
-        </nav>
+        <div class="container header-container">
+            <h1><a href="index.html">Capitalist Calculator</a></h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Währungsvergleich</a></li>
+                    <li><a href="date-comparison.html">Datumsvergleich</a></li>
+                    <li><a href="about-us.html">Über uns</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-        <section id="currency-comparison">
-            <h1>Datumsvergleich</h1>
-            <label for="currencyDropdown">Währung:</label>
-            <select id="currencyDropdown"></select>
-            
-            <label for="dateDropdown1">Datum 1:</label>
-            <select id="dateDropdown1"></select>
-            
-            <label for="dateDropdown2">Datum 2:</label>
-            <select id="dateDropdown2"></select>
-            
-            <button id="compareButton">Vergleichen</button>
-            
-            <div>
-                <canvas id="rates_Chart"></canvas>
-            </div>
-            
-            <div id="exchangeRateDisplay"></div>
-        </section>
+        <div class="container">
+            <section id="currency-comparison">
+                <h1>Datumsvergleich</h1>
+                <label for="currencyDropdown">Währung:</label>
+                <select id="currencyDropdown"></select>
+                
+                <label for="dateDropdown1">Datum 1:</label>
+                <select id="dateDropdown1"></select>
+                
+                <label for="dateDropdown2">Datum 2:</label>
+                <select id="dateDropdown2"></select>
+                
+                <button id="compareButton">Vergleichen</button>
+                
+                <div>
+                    <canvas id="rates_Chart"></canvas>
+                </div>
+                
+                <div id="exchangeRateDisplay"></div>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>Copyright © 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+        <div class="container">
+            <p>Copyright © 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
     <script src="JS/date-comparison.js"></script>
 </body>
 </html>
+
 
