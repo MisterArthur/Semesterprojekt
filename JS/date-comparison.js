@@ -12,6 +12,7 @@ async function fetchData(url) {
     }
 }
 
+
 async function fetchData(url) {
     try {
         let response = await fetch(url);
@@ -20,6 +21,10 @@ async function fetchData(url) {
     } catch (error) {
         console.log(error);
     }
+}
+
+function sortDatesDescending(a, b) {
+    return new Date(b) - new Date(a);
 }
 
 async function init() {
@@ -55,16 +60,22 @@ async function init() {
 
         if (!dates.has(entry.created_at)) {
             dates.add(entry.created_at);
-            let dateOption1 = document.createElement('option');
-            dateOption1.value = entry.created_at;
-            dateOption1.textContent = entry.created_at;
-            dateDropdown1.appendChild(dateOption1);
-
-            let dateOption2 = document.createElement('option');
-            dateOption2.value = entry.created_at;
-            dateOption2.textContent = entry.created_at;
-            dateDropdown2.appendChild(dateOption2);
         }
+    });
+
+    // Sortiere die Daten nach Datum absteigend
+    const sortedDates = Array.from(dates).sort(sortDatesDescending);
+
+    sortedDates.forEach(date => {
+        let dateOption1 = document.createElement('option');
+        dateOption1.value = date;
+        dateOption1.textContent = date;
+        dateDropdown1.appendChild(dateOption1);
+
+        let dateOption2 = document.createElement('option');
+        dateOption2.value = date;
+        dateOption2.textContent = date;
+        dateDropdown2.appendChild(dateOption2);
     });
 
     compareButton.addEventListener('click', async () => {
@@ -77,47 +88,70 @@ async function init() {
             return;
         }
 
-        const filteredData1 = data.filter(entry => entry.currency === selectedCurrency && entry.created_at === selectedDate1);
-        const filteredData2 = data.filter(entry => entry.currency === selectedCurrency && entry.created_at === selectedDate2);
+        const startDate = new Date(selectedDate1);
+        const endDate = new Date(selectedDate2);
+
+        if (startDate > endDate) {
+            exchangeRateDisplay.innerHTML = 'Das erste Datum muss vor dem zweiten Datum liegen.';
+            return;
+        }
+
+        const filteredData = data.filter(entry => entry.currency === selectedCurrency && new Date(entry.created_at) >= startDate && new Date(entry.created_at) <= endDate);
+        
+        // Sortiere die Daten nach Datum
+        filteredData.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 
         // Wenn ein Chart bereits existiert, zerstöre es
         if (chart) {
             chart.destroy();
         }
 
-        // Umrechnung der Wechselkurse in USD
-        let rate1 = filteredData1.length ? parseFloat(filteredData1[0].rate) : 0;
-        let rate2 = filteredData2.length ? parseFloat(filteredData2[0].rate) : 0;
+        const labels = filteredData.map(entry => entry.created_at);
+        const rates = filteredData.map(entry => 1 / parseFloat(entry.rate));
 
-        // Umrechnung in die Form "1 Währung = x USD"
-        rate1 = 1 / rate1;
-        rate2 = 1 / rate2;
-
-        // Erstelle ein neues Chart als Balkendiagramm
+        // Erstelle ein neues Chart als Liniendiagramm
         chart = new Chart(chartContainer.getContext('2d'), {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: [selectedDate1, selectedDate2],
+                labels: labels,
                 datasets: [{
                     label: `Wechselkurs von ${selectedCurrency} über Zeit`,
-                    data: [rate1, rate2],
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
-                    borderWidth: 1
+                    data: rates,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: false
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Wechselkurs (in USD)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Datum'
+                        },
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'YYYY-MM-DD'
+                            }
+                        }
                     }
                 }
             }
         });
 
         // Anzeige der Wechselkurse als Text unter dem Diagramm
-        if (filteredData1.length && filteredData2.length) {
-            exchangeRateDisplay.innerHTML = `1 ${selectedCurrency} am ${selectedDate1} = ${rate1.toFixed(4)} USD<br>1 ${selectedCurrency} am ${selectedDate2} = ${rate2.toFixed(4)} USD`;
+        if (filteredData.length) {
+            exchangeRateDisplay.innerHTML = `Wechselkurs von ${selectedCurrency} vom ${selectedDate1} bis ${selectedDate2}`;
         } else {
             exchangeRateDisplay.innerHTML = 'Wechselkurse nicht verfügbar.';
         }
@@ -125,3 +159,4 @@ async function init() {
 }
 
 init();
+
