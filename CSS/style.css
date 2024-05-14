@@ -18,6 +18,15 @@ body {
   justify-content: space-between; /* Verteilt die Abschnitte mit Platz dazwischen */
 }
 
+.moneyRules {
+  text-align: center;
+  padding: 0px;
+}
+
+.containerMoneyRules {
+  padding: 0px;
+}
+
 .side-by-side section {
   flex: 1; /* Lässt die Abschnitte gleichmäßig Platz einnehmen */
   margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
@@ -30,8 +39,14 @@ header {
 }
 
 header .container {
-  text-align: center;
+  display: flex; /* Verwende Flexbox */
+  justify-content: space-between; /* Verteilt den Titel und die Navigation */
+  align-items: center; /* Zentriert die Elemente vertikal */
   font-weight: bold;
+}
+
+header .container h1 {
+  margin: 0; /* Entferne den Standardabstand */
 }
 
 header .container h1 a {
@@ -45,8 +60,7 @@ header .container h1, header .container h2 {
 
 /* Navigation */
 #main-nav {
-  background-color: #007BFF; /* Hintergrundfarbe der Navigation Blau */
-  padding: 10px 0;
+  background-color: transparent; /* Entferne den Hintergrund der Navigation */
 }
 
 #main-nav ul {
@@ -54,7 +68,6 @@ header .container h1, header .container h2 {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Zentriert die Navigationselemente horizontal */
 }
 
 #main-nav ul li {
