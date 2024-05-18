@@ -1,4 +1,4 @@
-/* Globale Stile */
+/* ------------------------- -----------------Globale Stile ----------------------------------------------------- */
 body {
   font-family: 'Arial', sans-serif; /* Moderne Schriftart */
   margin: 0;
@@ -33,7 +33,7 @@ body {
   margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
 }
 
-/* Header */
+/* ------------------------------------------------------- Header ----------------------------------------------------------- */
 header {
   background-color: #0a3161; /* Hintergrundfarbe des Headers Blau */
   padding: 20px 0;
@@ -59,7 +59,7 @@ header .container h1, header .container h2 {
   color: #ffffff; /* Textfarbe der Titel und Untertitel Weiß */
 }
 
-/* Navigation */
+/* ------------ Navigation ------------ */
 #main-nav {
   background-color: transparent; /* Entferne den Hintergrund der Navigation */
 }
@@ -85,7 +85,7 @@ header .container h1, header .container h2 {
   color: #B31942; /* Textfarbe der Links beim Hover Rot */
 }
 
-/* Hauptinhalt */
+/* ------------------------------------------ Hauptinhalt ------------------------------------------ */
 main {
   background-color: #ffffff; /* Hintergrundfarbe des Hauptinhalts Weiß */
   padding: 20px 0;
