@@ -100,15 +100,7 @@ main section h2 {
   color: #B31942; /* Textfarbe der Abschnittstitel Rot */
 }
 
-/* Footer */
-footer {
-  background-color: #0a3161; /* Hintergrundfarbe des Footers Blau */
-  padding: 20px 0;
-}
 
-footer .container p {
-  color: #ffffff; /* Textfarbe des Fußtextes Weiß */
-}
 
 /* Stil für den Dropdown-Button */
 .dropbtn {
@@ -172,4 +164,14 @@ footer .container p {
 
 #exchangeRateDisplay {
   padding: 3em;
+}
+
+/* ----------------------------------------- Footer ------------------------------------------------ */
+footer {
+  background-color: #0a3161; /* Hintergrundfarbe des Footers Blau */
+  padding: 20px 0;
+}
+
+footer .container p {
+  color: #ffffff; /* Textfarbe des Fußtextes Weiß */
 }
