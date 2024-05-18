@@ -36,6 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datumsvergleich</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap" rel="stylesheet"> <!-- Khand Medium einbinden -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0/dist/chartjs-adapter-moment.min.js"></script>
@@ -45,6 +46,7 @@
         <div class="container header-container">
             <h1><a href="index.html">Capitalist Calculator</a></h1>
             <nav id="main-nav">
+                <span class="menu-toggle">&#9776;</span> <!-- Hamburger-Menü-Icon -->
                 <ul>
                     <li><a href="index.html">Währungsvergleich</a></li>
                     <li><a href="date-comparison.html">Datumsvergleich</a></li>
@@ -68,8 +70,8 @@
                 
                 <button id="compareButton">Vergleichen</button>
                 
-                <div>
-                    <canvas id="rates_Chart"></canvas>
+                <div class="chart-container">
+                    <canvas id="times_chart"></canvas>
                 </div>
                 
                 <div id="exchangeRateDisplay"></div>
@@ -82,7 +84,11 @@
         </div>
     </footer>
     <script src="JS/date-comparison.js"></script>
+    <script>
+        // Script für das Hamburger-Menü
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
-
-

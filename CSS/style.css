@@ -66,6 +66,8 @@ header .container h1 {
   margin: 0; /* Entferne den Standardabstand */
   font-family: 'Khand', sans-serif; /* Khand Medium Schriftart */
   font-weight: 500; /* Medium Gewicht */
+  display: flex; /* Flexbox für das H1-Element */
+  align-items: center; /* Zentriert den Text und das Bild vertikal */
 }
 
 header .container h1 a {
@@ -75,6 +77,11 @@ header .container h1 a {
 
 header .container h1, header .container h2 {
   color: #ffffff; /* Textfarbe der Titel und Untertitel Weiß */
+}
+
+header .container h1 .logo {
+  height: 1em; /* Höhe des Bildes auf die Höhe der Kleinbuchstaben des Textes setzen */
+  margin-left: 10px; /* Optionaler Abstand zwischen dem Text und dem Bild */
 }
 
 /* ------------ Navigation ------------ */
@@ -172,11 +179,13 @@ main section h2 {
   display: flex; /* Verwende Flexbox, um die Diagramme nebeneinander anzuzeigen */
   justify-content: space-around; /* Verteile die Diagramme gleichmäßig */
   padding: 20px 0;
+  width: 100%; /* Breite auf 100% setzen */
 }
 
-#bigMacChart1, #bigMacChart2 {
-  max-width: 300px; /* Maximalbreite der Kuchendiagramme */
-  max-height: 300px; /* Maximalhöhe der Kuchendiagramme */
+#times_chart {
+  width: 100%; /* Breite auf 100% setzen */
+  height: auto; /* Höhe automatisch anpassen */
+  max-height: 400px; /* Maximalhöhe setzen */
 }
 
 #exchangeRateDisplay {
@@ -193,7 +202,7 @@ footer .container p {
   color: #ffffff; /* Textfarbe des Fußtextes Weiß */
 }
 
-/* ------------ Responsives Menü ------------ */
+/* ------------ Responsives Design ------------ */
 
 /* Styles für kleinere Bildschirme */
 @media (max-width: 768px) {
@@ -216,11 +225,38 @@ footer .container p {
     color: #ffffff; /* Farbe des Hamburger-Menüs */
     font-size: 24px; /* Größe des Hamburger-Menüs */
   }
+
+  .side-by-side {
+    flex-direction: column; /* Elemente vertikal anordnen */
+  }
+
+  .chart-container {
+    flex-direction: column; /* Diagramme vertikal anordnen */
+  }
+
+  #times_chart, #bigMacChart1, #bigMacChart2 {
+    max-width: 100%; /* Breite auf 100% setzen */
+    max-height: none; /* Höhe auf automatisch setzen */
+    margin-bottom: 20px; /* Abstand zwischen den Diagrammen */
+  }
 }
 
 /* Styles für größere Bildschirme */
 @media (min-width: 769px) {
   .menu-toggle {
     display: none; /* Hamburger-Menü ausblenden */
+  }
+
+  .side-by-side {
+    flex-direction: row; /* Elemente horizontal anordnen */
+  }
+
+  .chart-container {
+    flex-direction: row; /* Diagramme horizontal anordnen */
+  }
+
+  #bigMacChart1, #bigMacChart2 {
+    max-width: 300px; /* Maximalbreite der Kuchendiagramme */
+    max-height: 300px; /* Maximalhöhe der Kuchendiagramme */
   }
 }
