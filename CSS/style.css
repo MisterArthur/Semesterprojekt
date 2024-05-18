@@ -16,9 +16,7 @@ body {
 .side-by-side {
   display: flex;
   justify-content: space-between; /* Verteilt die Abschnitte mit Platz dazwischen */
-  background-image: url('Pictures/American_Flag_Background.png'); /* Pfad zum Bild */
-  background-size: cover; /* Bild skalieren, um den Container zu bedecken */
-  background-position: center; /* Bild zentrieren */
+  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
 }
 
 .moneyRules {
@@ -34,12 +32,21 @@ body {
 .side-by-side section {
   flex: 1; /* Lässt die Abschnitte gleichmäßig Platz einnehmen */
   margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
+  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
 }
 
 .features-section {
-  background-image: url('../images/your-image.jpg'); /* Pfad zum Bild */
-  background-size: cover; /* Bild skalieren, um den Container zu bedecken */
-  background-position: center; /* Bild zentrieren */
+  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
+}
+
+.background-image {
+  position: absolute; /* Absolute Positionierung des Bildes */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Bild skalieren, um den Container zu bedecken */
+  z-index: -1; /* Bild hinter den Textinhalt setzen */
 }
 
 /* ------------------------------------------------------- Header ----------------------------------------------------------- */
