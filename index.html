@@ -1,14 +1,13 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="CSS/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap" rel="stylesheet"> <!-- Khand Medium einbinden -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 <body>
     <header>
         <div class="container header-container">
@@ -16,6 +15,7 @@
                 <img src="Pictures/calculator.png" alt="Logo" class="logo">
             </h1>
             <nav id="main-nav">
+                <span class="menu-toggle">&#9776;</span> <!-- Hamburger-Menü-Icon -->
                 <ul>
                     <li><a href="index.html">Währungsvergleich</a></li>
                     <li><a href="date-comparison.html">Datumsvergleich</a></li>
@@ -30,21 +30,25 @@
                 <h2>Because money rules!</h2>
             </div>
         </div>
-        <div class="container">
+        <div class="container background-section">
             <div class="side-by-side">
-                <section class="about-section">
+                <section class="about-section" id="about-section">
                     <div>
                         <h2>About</h2>
                         <p>Willkommen auf unserer Webseite, dem ultimativen Ziel für Währungsumrechnungen – weil wer braucht schon den genauen Wert seines Geldes, wenn man stattdessen herausfinden kann, wie viele Big Macs man sich davon kaufen kann? Unsere Plattform bietet nicht nur schnöde Wechselkurse, sondern auch eine Prise trockenen Humor und eine Portion Sarkasmus. Hier machen wir die Welt der Finanzen nicht nur verständlich, sondern auch unterhaltsam.</p>
                     </div>
                 </section>
                 
-                <section class="features-section">
+                <section class="features-section" id="features-section">
                     <div>
                         <h2>Features</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat ex vel est fermentum, non feugiat nisi fermentum. Integer porta, justo a volutpat tempor, leo ligula aliquam urna, ac lacinia arcu tortor sed libero.</p>
                     </div>
                 </section>
+            </div>
+            <!-- Hintergrundbild einfügen -->
+            <div class="background-image-container">
+                <img src="Pictures/your-background-image.jpg" alt="Background Image" class="background-image">
             </div>
         </div>
         
@@ -75,11 +79,16 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+            <p>Copyright © 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
     <script src="JS/scripts.js"></script>
+    <script>
+        // Script für das Hamburger-Menü
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+    </script>
 </body>
-</html> 
-
+</html>

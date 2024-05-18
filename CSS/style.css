@@ -1,22 +1,21 @@
 /* ------------------------- -----------------Globale Stile ----------------------------------------------------- */
 body {
-  font-family: 'Arial', sans-serif; /* Moderne Schriftart */
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff; /* Haupt-Hintergrundfarbe Weiß */
+  background-color: #ffffff;
 }
 
 .container {
-  max-width: 1200px; /* Maximalbreite des Inhalts */
-  margin: 0 auto; /* Zentriert den Inhalt */
-  padding: 20px; /* Innenabstand für den Inhalt */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Neue Klasse für nebeneinander liegende Abschnitte */
 .side-by-side {
   display: flex;
-  justify-content: space-between; /* Verteilt die Abschnitte mit Platz dazwischen */
-  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
+  justify-content: space-between;
+  position: relative;
 }
 
 .moneyRules {
@@ -30,71 +29,82 @@ body {
 }
 
 .side-by-side section {
-  flex: 1; /* Lässt die Abschnitte gleichmäßig Platz einnehmen */
-  margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
-  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
+  flex: 1;
+  margin: 0 10px;
+  position: relative;
 }
 
 .features-section {
-  position: relative; /* Positionieren relativ, um absolute Positionierung der Bilder zu ermöglichen */
+  position: relative;
 }
 
-.background-image {
-  position: absolute; /* Absolute Positionierung des Bildes */
+.background-section {
+  position: relative;
+}
+
+.background-image-container {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Bild skalieren, um den Container zu bedecken */
-  z-index: -1; /* Bild hinter den Textinhalt setzen */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ------------------------------------------------------- Header ----------------------------------------------------------- */
 header {
-  background-color: #0a3161; /* Hintergrundfarbe des Headers Blau */
+  background-color: #0a3161;
   padding: 20px 0;
 }
 
 header .container {
-  display: flex; /* Verwende Flexbox */
-  justify-content: space-between; /* Verteilt den Titel und die Navigation */
-  align-items: center; /* Zentriert die Elemente vertikal */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
 }
 
 header .container h1 {
-  margin: 0; /* Entferne den Standardabstand */
-  font-family: 'Khand', sans-serif; /* Khand Medium Schriftart */
-  font-weight: 500; /* Medium Gewicht */
-  display: flex; /* Flexbox für das H1-Element */
-  align-items: center; /* Zentriert den Text und das Bild vertikal */
+  margin: 0;
+  font-family: 'Khand', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 2em; /* Standardgröße für größere Bildschirme */
 }
 
 header .container h1 a {
-  text-decoration: none; /* Entfernt die Unterstreichung */
-  color: inherit; /* Erbt die Textfarbe vom übergeordneten Element */
+  text-decoration: none;
+  color: inherit;
 }
 
 header .container h1, header .container h2 {
-  color: #ffffff; /* Textfarbe der Titel und Untertitel Weiß */
+  color: #ffffff;
 }
 
 header .container h1 .logo {
-  height: 1em; /* Höhe des Bildes auf die Höhe der Kleinbuchstaben des Textes setzen */
-  margin-left: 10px; /* Optionaler Abstand zwischen dem Text und dem Bild */
+  height: 1em;
+  margin-left: 10px;
 }
 
 /* ------------ Navigation ------------ */
 #main-nav {
-  background-color: transparent; /* Entferne den Hintergrund der Navigation */
+  background-color: transparent;
 }
 
 #main-nav ul {
-  list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Elemente horizontal anordnen */
-  justify-content: space-between; /* Elemente gleichmäßig verteilen */
+  display: flex;
+  justify-content: space-between;
 }
 
 #main-nav ul li {
@@ -102,18 +112,23 @@ header .container h1 .logo {
 }
 
 #main-nav ul li a {
-  text-decoration: none; /* Entfernt die Standard-Unterstreichung */
-  color: #ffffff; /* Textfarbe der Links Weiß */
-  font-size: 16px; /* Schriftgröße der Links */
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
 }
 
 #main-nav ul li a:hover {
-  color: #B31942; /* Textfarbe der Links beim Hover Rot */
+  color: #B31942;
+}
+
+/* Hamburger-Menü */
+.menu-toggle {
+  display: none;
 }
 
 /* ------------------------------------------ Hauptinhalt ------------------------------------------ */
 main {
-  background-color: #ffffff; /* Hintergrundfarbe des Hauptinhalts Weiß */
+  background-color: #ffffff;
   padding: 20px 0;
 }
 
@@ -123,30 +138,28 @@ main section {
 }
 
 main section h2 {
-  color: #B31942; /* Textfarbe der Abschnittstitel Rot */
+  color: #B31942;
 }
 
 /* Stil für den Dropdown-Button */
 .dropbtn {
-  background-color: #B31942; 
+  background-color: #B31942;
   color: white;
   padding: 12px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-} 
+}
 
-/* Stil für den Dropdown-Inhalt */
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-/* Stil für die Dropdown-Optionen */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -154,109 +167,143 @@ main section h2 {
   display: block;
 }
 
-/* Ändert die Hintergrundfarbe, wenn der Benutzer die Maus über eine Option bewegt */
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
-/* Zeigt den Dropdown-Inhalt, wenn der Benutzer den Button klickt */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Zeigt den Dropdown-Inhalt, wenn der Benutzer über dem Dropdown hovert */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Kuchendiagramme */
 .bigMacChart1, .bigMacChart2 {
-  max-width: 200px; /* Maximalbreite der Kuchendiagramme */
-  max-height: 200px; /* Maximalhöhe der Kuchendiagramme */
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .chart-container {
-  display: flex; /* Verwende Flexbox, um die Diagramme nebeneinander anzuzeigen */
-  justify-content: space-around; /* Verteile die Diagramme gleichmäßig */
+  display: flex;
+  justify-content: space-around;
   padding: 20px 0;
-  width: 100%; /* Breite auf 100% setzen */
+  width: 100%;
 }
 
 #times_chart {
-  width: 100%; /* Breite auf 100% setzen */
-  height: auto; /* Höhe automatisch anpassen */
-  max-height: 400px; /* Maximalhöhe setzen */
+  width: 100%;
+  height: auto;
+  max-height: 400px;
 }
 
 #exchangeRateDisplay {
   padding: 3em;
 }
 
-/* ----------------------------------------- Footer ------------------------------------------------ */
 footer {
-  background-color: #0a3161; /* Hintergrundfarbe des Footers Blau */
+  background-color: #0a3161;
   padding: 20px 0;
 }
 
 footer .container p {
-  color: #ffffff; /* Textfarbe des Fußtextes Weiß */
+  color: #ffffff;
 }
 
 /* ------------ Responsives Design ------------ */
 
 /* Styles für kleinere Bildschirme */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 24px;
+  }
+
   #main-nav ul {
-    flex-direction: column; /* Elemente vertikal anordnen */
-    display: none; /* Standardmäßig ausblenden */
+    flex-direction: column;
+    display: none;
   }
 
   #main-nav.active ul {
-    display: flex; /* Bei Aktivierung einblenden */
+    display: flex;
   }
 
   #main-nav ul li {
-    margin: 10px 0; /* Abstand zwischen den vertikalen Elementen */
-  }
-
-  .menu-toggle {
-    display: block; /* Hamburger-Menü anzeigen */
-    cursor: pointer;
-    color: #ffffff; /* Farbe des Hamburger-Menüs */
-    font-size: 24px; /* Größe des Hamburger-Menüs */
+    margin: 10px 0;
   }
 
   .side-by-side {
-    flex-direction: column; /* Elemente vertikal anordnen */
+    flex-direction: column;
+  }
+
+  .background-image-container {
+    position: relative;
+  }
+
+  .background-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
   }
 
   .chart-container {
-    flex-direction: column; /* Diagramme vertikal anordnen */
+    flex-direction: column;
   }
 
   #times_chart, #bigMacChart1, #bigMacChart2 {
-    max-width: 100%; /* Breite auf 100% setzen */
-    max-height: none; /* Höhe auf automatisch setzen */
-    margin-bottom: 20px; /* Abstand zwischen den Diagrammen */
+    max-width: 100%;
+    max-height: none;
+    margin-bottom: 20px;
+  }
+
+  /* Responsives Design für h1 */
+  header .container h1 {
+    font-size: 1.5em; /* Kleinere Schriftgröße für kleinere Bildschirme */
+  }
+
+  header .container h1 .logo {
+    height: 1em;
   }
 }
 
 /* Styles für größere Bildschirme */
 @media (min-width: 769px) {
   .menu-toggle {
-    display: none; /* Hamburger-Menü ausblenden */
+    display: none;
   }
 
   .side-by-side {
-    flex-direction: row; /* Elemente horizontal anordnen */
+    flex-direction: row;
+  }
+
+  .background-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .chart-container {
-    flex-direction: row; /* Diagramme horizontal anordnen */
+    flex-direction: row;
   }
 
   #bigMacChart1, #bigMacChart2 {
-    max-width: 300px; /* Maximalbreite der Kuchendiagramme */
-    max-height: 300px; /* Maximalhöhe der Kuchendiagramme */
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  /* Größere Schriftgröße für h1 auf größeren Bildschirmen */
+  header .container h1 {
+    font-size: 2.5em;
+  }
+
+  header .container h1 .logo {
+    height: 1.2em;
   }
 }
