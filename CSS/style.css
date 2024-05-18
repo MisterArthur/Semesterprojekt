@@ -82,7 +82,7 @@ header .container h1, header .container h2 {
 }
 
 #main-nav ul li a:hover {
-  color: #FF0000; /* Textfarbe der Links beim Hover Rot */
+  color: #B31942; /* Textfarbe der Links beim Hover Rot */
 }
 
 /* Hauptinhalt */
@@ -97,12 +97,12 @@ main section {
 }
 
 main section h2 {
-  color: #FF0000; /* Textfarbe der Abschnittstitel Rot */
+  color: #B31942; /* Textfarbe der Abschnittstitel Rot */
 }
 
 /* Footer */
 footer {
-  background-color: #007BFF; /* Hintergrundfarbe des Footers Blau */
+  background-color: #0a3161; /* Hintergrundfarbe des Footers Blau */
   padding: 20px 0;
 }
 
@@ -112,7 +112,7 @@ footer .container p {
 
 /* Stil für den Dropdown-Button */
 .dropbtn {
-  background-color: #FF0000; 
+  background-color: #B31942; 
   color: white;
   padding: 12px;
   font-size: 16px;
