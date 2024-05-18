@@ -86,7 +86,8 @@ header .container h1, header .container h2 {
   list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Elemente horizontal anordnen */
+  justify-content: space-between; /* Elemente gleichmäßig verteilen */
 }
 
 #main-nav ul li {
@@ -190,4 +191,36 @@ footer {
 
 footer .container p {
   color: #ffffff; /* Textfarbe des Fußtextes Weiß */
+}
+
+/* ------------ Responsives Menü ------------ */
+
+/* Styles für kleinere Bildschirme */
+@media (max-width: 768px) {
+  #main-nav ul {
+    flex-direction: column; /* Elemente vertikal anordnen */
+    display: none; /* Standardmäßig ausblenden */
+  }
+
+  #main-nav.active ul {
+    display: flex; /* Bei Aktivierung einblenden */
+  }
+
+  #main-nav ul li {
+    margin: 10px 0; /* Abstand zwischen den vertikalen Elementen */
+  }
+
+  .menu-toggle {
+    display: block; /* Hamburger-Menü anzeigen */
+    cursor: pointer;
+    color: #ffffff; /* Farbe des Hamburger-Menüs */
+    font-size: 24px; /* Größe des Hamburger-Menüs */
+  }
+}
+
+/* Styles für größere Bildschirme */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* Hamburger-Menü ausblenden */
+  }
 }
