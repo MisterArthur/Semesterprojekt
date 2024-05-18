@@ -16,6 +16,9 @@ body {
 .side-by-side {
   display: flex;
   justify-content: space-between; /* Verteilt die Abschnitte mit Platz dazwischen */
+  background-image: url('Pictures/American_Flag_Background.png'); /* Pfad zum Bild */
+  background-size: cover; /* Bild skalieren, um den Container zu bedecken */
+  background-position: center; /* Bild zentrieren */
 }
 
 .moneyRules {
@@ -31,6 +34,12 @@ body {
 .side-by-side section {
   flex: 1; /* Lässt die Abschnitte gleichmäßig Platz einnehmen */
   margin: 0 10px; /* Optionaler Abstand zwischen den Abschnitten */
+}
+
+.features-section {
+  background-image: url('../images/your-image.jpg'); /* Pfad zum Bild */
+  background-size: cover; /* Bild skalieren, um den Container zu bedecken */
+  background-position: center; /* Bild zentrieren */
 }
 
 /* ------------------------------------------------------- Header ----------------------------------------------------------- */
@@ -99,8 +108,6 @@ main section {
 main section h2 {
   color: #B31942; /* Textfarbe der Abschnittstitel Rot */
 }
-
-
 
 /* Stil für den Dropdown-Button */
 .dropbtn {
