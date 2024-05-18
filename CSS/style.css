@@ -21,7 +21,7 @@ body {
 .moneyRules {
   text-align: center;
   padding: 0px;
-  color: #FF0000;
+  color: #B31942;
 }
 
 .containerMoneyRules {
@@ -35,7 +35,7 @@ body {
 
 /* Header */
 header {
-  background-color: #007BFF; /* Hintergrundfarbe des Headers Blau */
+  background-color: #0a3161; /* Hintergrundfarbe des Headers Blau */
   padding: 20px 0;
 }
 
