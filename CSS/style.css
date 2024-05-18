@@ -77,7 +77,7 @@ header .container h1 {
   font-weight: 500;
   display: flex;
   align-items: center;
-  font-size: 2em; /* Standardgröße für größere Bildschirme */
+  font-size: 2em;
 }
 
 header .container h1 a {
@@ -206,6 +206,37 @@ footer .container p {
   color: #ffffff;
 }
 
+/* About Section */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.about-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.about-column {
+  text-align: center;
+}
+
+.about-column img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.about-column p {
+  font-size: 16px;
+  color: #333;
+}
+
 /* ------------ Responsives Design ------------ */
 
 /* Styles für kleinere Bildschirme */
@@ -257,11 +288,23 @@ footer .container p {
 
   /* Responsives Design für h1 */
   header .container h1 {
-    font-size: 1.5em; /* Kleinere Schriftgröße für kleinere Bildschirme */
+    font-size: 1.5em;
   }
 
   header .container h1 .logo {
     height: 1em;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-row {
+    flex-direction: column;
+  }
+
+  .about-column {
+    margin-bottom: 20px;
   }
 }
 
@@ -305,5 +348,17 @@ footer .container p {
 
   header .container h1 .logo {
     height: 1.2em;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-row {
+    flex-direction: row;
+  }
+
+  .about-column {
+    margin-bottom: 20px;
   }
 }

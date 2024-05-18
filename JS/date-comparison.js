@@ -543,7 +543,12 @@ async function init() {
         dateDropdown2.appendChild(dateOption2);
     });
 
-    compareButton.addEventListener('click', async () => {
+    // Standardwerte setzen
+    currencyDropdown.value = 'CHF';
+    dateDropdown1.value = sortedDates[sortedDates.length - 1]; // Ältestes Datum
+    dateDropdown2.value = sortedDates[0]; // Neuestes Datum
+
+    async function compareCurrencies() {
         const selectedCurrency = currencyDropdown.value;
         const selectedDate1 = dateDropdown1.value;
         const selectedDate2 = dateDropdown2.value;
@@ -635,7 +640,13 @@ async function init() {
         } else {
             exchangeRateDisplay.innerHTML = 'Wechselkurse nicht verfügbar.';
         }
-    });
+    }
+
+    // Event-Listener für den Button
+    compareButton.addEventListener('click', compareCurrencies);
+
+    // Initialer Vergleich bei Laden der Seite
+    compareCurrencies();
 }
 
 init();
