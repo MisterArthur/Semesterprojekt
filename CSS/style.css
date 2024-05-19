@@ -40,9 +40,25 @@ body {
 
 .background-section {
   position: relative;
-  background-image: url('Pictures/America.webp');
-  background-size: cover;
-  background-position: center;
+  background-image: url('../Pictures/America.webp');
+  background-size: cover; /* Bild wird vergrößert/verkleinert, um den Container zu füllen */
+  background-repeat: no-repeat; /* Verhindert die Wiederholung des Hintergrundbildes */
+  background-position: center bottom; /* Zentriert das Bild horizontal und zeigt den unteren Teil an */
+  width: 100vw; /* Ganze Bildschirmbreite */
+  height: 100vh; /* Höhe des Viewports */
+  margin: 0; /* Keine Ränder */
+  padding: 0; /* Kein Padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Inhalt wird unten ausgerichtet */
+  align-items: center; /* Horizontale Zentrierung des Inhalts */
+}
+
+.containerMoneyRules {
+  background: rgba(255, 255, 255, 0); /* Halbtransparenter Hintergrund, um Lesbarkeit zu verbessern */
+  padding: 20px;
+  width: 100%; /* Ganze Breite */
+  text-align: center;
 }
 
 .background-image-container {
@@ -120,7 +136,7 @@ header .container h1 .logo {
 /* ------------------------------------------ Hauptinhalt ------------------------------------------ */
 main {
   background-color: #ffffff;
-  padding: 20px 0;
+  padding: 0;
 }
 
 /* Abschnitte */
