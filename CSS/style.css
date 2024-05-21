@@ -20,16 +20,17 @@ body {
 
 .moneyRules {
   text-align: center;
-  padding: 0px;
   color: #B31942;
-  position: absolute;
-  top: 250px;
-  left: 850px;
   font-weight: bold;
   font-size: 2.5em;
+  position: absolute;
 }
 
 .containerMoneyRules {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Volle Höhe des Viewports */
   padding: 0px;
 }
 
@@ -57,13 +58,6 @@ body {
   flex-direction: column;
   justify-content: flex-end; /* Inhalt wird unten ausgerichtet */
   align-items: center; /* Horizontale Zentrierung des Inhalts */
-}
-
-.containerMoneyRules {
-  background: rgba(255, 255, 255, 0); /* Halbtransparenter Hintergrund, um Lesbarkeit zu verbessern */
-  padding: 20px;
-  width: 100%; /* Ganze Breite */
-  text-align: center;
 }
 
 .background-image-container {
@@ -318,15 +312,8 @@ footer .container p {
     flex-direction: column;
   }
 
-  .background-image-container {
-    position: relative;
-  }
-
-  .background-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
+  .background-section {
+    background-image: none; /* Hintergrundbild ausblenden bei kleineren Bildschirmen */
   }
 
   .chart-container {
