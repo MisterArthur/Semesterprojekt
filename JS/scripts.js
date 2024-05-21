@@ -1,3 +1,5 @@
+
+
 console.log("test");
 let url = "https://567003-2.web.fhgr.ch/PHP/unload.php";
 let data;
@@ -157,7 +159,7 @@ async function init() {
                 labels: ['Prozent eines Big Macs', 'Rest'],
                 datasets: [{
                     data: [percentBigMac1, 100 - percentBigMac1],
-                    backgroundColor: ['#FF6384', '#DDDDDD']
+                    backgroundColor: ['#FF6384', '#FFFFFF']
                 }]
             };
 
@@ -165,14 +167,19 @@ async function init() {
                 labels: ['Prozent eines Big Macs', 'Rest'],
                 datasets: [{
                     data: [percentBigMac2, 100 - percentBigMac2],
-                    backgroundColor: ['#36A2EB', '#DDDDDD']
+                    backgroundColor: ['#36A2EB', '#FFFFFF']
                 }]
             };
 
             // Optionen für die Kuchendiagramme
             const options = {
                 responsive: false,
-                maintainAspectRatio: true
+                maintainAspectRatio: true,
+                plugins: {
+                    backgroundImage: {
+                        image: 'Pictures/bigmac.png'
+                    }
+                }
             };
 
             // Erstellen der Kuchendiagramme
@@ -200,6 +207,3 @@ async function init() {
 }
 
 init();
-
-
-
