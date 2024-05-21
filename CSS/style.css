@@ -23,11 +23,10 @@ body {
   padding: 0px;
   color: #B31942;
   position: absolute;
-  top: 35%; /* Nachher relative Einheiten für die Positionierung */
-  left: 70%; /* Nachher relative Einheiten für die Positionierung */
-  transform: translate(-50%, -50%); /* Nachher Zentrierung des Textes */
+  top: 250px;
+  left: 850px;
   font-weight: bold;
-  font-size: 2.5vw; /* Nachher Verwendung von vw für die Schriftgröße */
+  font-size: 2.5em;
 }
 
 .containerMoneyRules {
@@ -245,13 +244,19 @@ footer .container p {
 }
 
 .about-section {
-  max-width: 80%;
-  margin: 5% 0 0 58%; /* Anpassung der rechten Marge */
+  max-width: 800px;
+  width: calc(100% - 40px);
+  margin: 100px auto 0; /* Obere Marge für vertikale Ausrichtung */
   padding: 0;
   text-align: justify;
 }
 
-
+/* Für größere Bildschirme */
+@media (min-width: 769px) {
+  .about-section {
+    margin: 100px auto 0 50px; /* Anpassung des linken Rands für größere Bildschirme */
+  }
+}
 
 .about-section p {
   text-align: justify; /* Text im Absatz blockausrichten */
@@ -285,7 +290,7 @@ footer .container p {
   color: #333;
 }
 
-/* -------------------------------------------Responsives Design----------------------------------------- */
+/* ------------ Responsives Design ------------ */
 
 /* Styles für kleinere Bildschirme */
 @media (max-width: 768px) {
