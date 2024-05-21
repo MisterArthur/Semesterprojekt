@@ -3,7 +3,13 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+}
+
+  body.index-page {
+  background-image: url('../Pictures/America_optimized.jpg');
+  background-size: 100%; /* Bild wird vergrößert/verkleinert, um den Container zu füllen */
+  background-repeat: no-repeat; /* Verhindert die Wiederholung des Hintergrundbildes */
+  background-position: top center; /* Zentriert das Bild horizontal und vertikal */
 }
 
 .container {
@@ -23,10 +29,8 @@ body {
   color: #B31942;
   font-weight: bold;
   font-size: 2.5em;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 45%;
+  width: 50%;
 }
 
 .containerMoneyRules {
@@ -35,6 +39,7 @@ body {
   align-items: center;
   height: 100vh; /* Volle Höhe des Viewports */
   padding: 0px;
+  text-align: bottom;
 }
 
 .p-container {
@@ -51,33 +56,13 @@ body {
 .features-section {
   position: relative;
 }
-
-.background-section {
-  position: relative;
-  background-image: url('../Pictures/America_optimized.png');
-  background-size: cover; /* Bild wird vergrößert/verkleinert, um den Container zu füllen */
-  background-repeat: no-repeat; /* Verhindert die Wiederholung des Hintergrundbildes */
-  background-position: center bottom; /* Zentriert das Bild horizontal und zeigt den unteren Teil an */
-  width: 100vw; /* Ganze Bildschirmbreite */
-  height: 100vh; /* Höhe des Viewports */
-  margin: 0; /* Keine Ränder */
-  padding: 0; /* Kein Padding */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Inhalt wird unten ausgerichtet */
-  align-items: center; /* Horizontale Zentrierung des Inhalts */
+.background-section{
+  background-size: cover;
 }
 
-.containerMoneyRules {
-  background: rgba(255, 255, 255, 0); /* Halbtransparenter Hintergrund, um Lesbarkeit zu verbessern */
-  padding: 20px;
-  width: 100%; /* Ganze Breite */
-  text-align: center;
-}
-
-.background-image-container {
-  display: none; /* Hintergrundbild nur über CSS, daher nicht erforderlich */
-}
+/*.background-image-container {
+  display: none; /* Hintergrundbild nur über CSS, daher nicht erforderlich 
+}*/
 
 /* ------------------------------------------------------- Header ----------------------------------------------------------- */
 header {
@@ -153,7 +138,7 @@ header .container h1 .logo {
 
 /* ------------------------------------------ Hauptinhalt ------------------------------------------ */
 main {
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
   padding-top: 60px; /* Padding to offset the fixed header */
 }
 
@@ -259,16 +244,9 @@ footer .container p {
 .about-section {
   max-width: 800px;
   width: calc(100% - 40px);
-  margin: 100px auto 0; /* Obere Marge für vertikale Ausrichtung */
+  margin: 0 auto 0; /* Obere Marge für vertikale Ausrichtung */
   padding: 0;
   text-align: justify;
-}
-
-/* Für größere Bildschirme */
-@media (min-width: 769px) {
-  .about-section {
-    margin: 100px auto 0 50px; /* Anpassung des linken Rands für größere Bildschirme */
-  }
 }
 
 .about-section p {
@@ -303,9 +281,7 @@ footer .container p {
   color: #333;
 }
 
-/* ------------ Responsives Design ------------ */
-
-/* Styles für kleinere Bildschirme */
+/* ---------------------------------------------- Responsives Design ----------------------------------------------- */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -331,18 +307,11 @@ footer .container p {
     flex-direction: column;
   }
 
-  .background-image-container {
-    position: relative;
-  }
-
-  .background-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
-  }
-
   .chart-container {
+    flex-direction: column;
+  }
+
+  .chart-background {
     flex-direction: column;
   }
 
@@ -377,13 +346,21 @@ footer .container p {
     padding-left: 0;
   }
 
+  .moneyRules {
+    text-align: center;
+    color: #B31942;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-top: 5%;
+    width: 50%;
+  }
+
   /* Hintergrundbild bei kleineren Bildschirmen ausblenden */
-  .background-section {
-    background-image: none;
+  .background_image {
+    display: none;
   }
 }
 
-/* Styles für größere Bildschirme */
 @media (min-width: 769px) {
   .menu-toggle {
     display: none;
@@ -408,6 +385,10 @@ footer .container p {
   }
 
   .chart-container {
+    flex-direction: row;
+  }
+
+  .chart-background {
     flex-direction: row;
   }
 
@@ -441,8 +422,7 @@ footer .container p {
     padding-left: 20px;
   }
 
-  /* Hintergrundbild bei größeren Bildschirmen anzeigen
   .background-section {
-    background-image: url('../Pictures/America_optimized.png');
-  } */
+    display: block;
+  }
 }
