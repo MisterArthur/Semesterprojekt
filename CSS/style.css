@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 
-  body.index-page {
+body.index-page {
   background-image: url('../Pictures/America_optimized.jpg');
   background-size: 100%; /* Bild wird vergrößert/verkleinert, um den Container zu füllen */
   background-repeat: no-repeat; /* Verhindert die Wiederholung des Hintergrundbildes */
@@ -37,7 +37,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Volle Höhe des Viewports */
+  /* height: 100vh; /* Volle Höhe des Viewports */
   padding: 0px;
   text-align: bottom;
 }
@@ -56,13 +56,9 @@ body {
 .features-section {
   position: relative;
 }
-.background-section{
+.background-section {
   background-size: cover;
 }
-
-/*.background-image-container {
-  display: none; /* Hintergrundbild nur über CSS, daher nicht erforderlich 
-}*/
 
 /* ------------------------------------------------------- Header ----------------------------------------------------------- */
 header {
@@ -221,6 +217,12 @@ main section h2 {
   max-height: 400px;
 }
 
+#averageFriesChart {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+
 #exchangeRateDisplay {
   padding: 3em;
 }
@@ -234,7 +236,12 @@ footer .container p {
   color: #ffffff;
 }
 
-/* About Section */
+/*---------------------------- About Section ---------------------------------------- */
+.main-about-us {
+  /*background-color: #ffffff;*/
+  padding-top: 100px; /* Padding to offset the fixed header */
+}
+
 .about-container {
   display: flex;
   flex-direction: column;
@@ -351,7 +358,7 @@ footer .container p {
     color: #B31942;
     font-weight: bold;
     font-size: 2.5em;
-    margin-top: 5%;
+    margin-top: 20%;
     width: 50%;
   }
 
