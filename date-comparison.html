@@ -1,0 +1,96 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Währungsvergleich</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Währungsvergleich</a></li>
+                <li><a href="date-comparison.html">Datumsvergleich</a></li>
+                <li><a href="about-us.html">Über uns</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="currency-comparison">
+            <h1>Währungsvergleich</h1>
+            Inhalt für Währungsvergleich 
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datumsvergleich</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap" rel="stylesheet"> <!-- Khand Medium einbinden -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0/dist/chartjs-adapter-moment.min.js"></script>
+</head>
+<body id="body-date-comparison">
+    <header>
+        <div class="container header-container">
+            <h1><a href="index.html">Capitalist Calculator</a>
+                <img src="Pictures/calculator.png" alt="Logo" class="logo">
+            </h1>
+            <nav id="main-nav">
+                <span class="menu-toggle">&#9776;</span> <!-- Hamburger-Menü-Icon -->
+                <ul>
+                    <li><a href="index.html">Währungsvergleich</a></li>
+                    <li><a href="date-comparison.html">Datumsvergleich</a></li>
+                    <li><a href="about-us.html">Über uns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section id="currency-comparison">
+                <h1>Datumsvergleich</h1>
+                <label for="currencyDropdown">Währung:</label>
+                <select id="currencyDropdown"></select>
+                
+                <label for="dateDropdown1">Datum 1:</label>
+                <select id="dateDropdown1"></select>
+                
+                <label for="dateDropdown2">Datum 2:</label>
+                <select id="dateDropdown2"></select>
+                
+                <button id="compareButton">Vergleichen</button>
+                
+                <div class="chart-container">
+                    <canvas id="times_chart"></canvas>
+                </div>
+                
+                <div id="exchangeRateDisplay"></div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Copyright © 2024 Dein Unternehmen. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+    <script src="JS/date-comparison.js"></script>
+    <script>
+        // Script für das Hamburger-Menü
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
