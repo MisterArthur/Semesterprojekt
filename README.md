@@ -15,4 +15,3 @@ Auf der Hauptseite führt ein kleiner Text unsere Idee vor. Danach kann man dire
 
 Herausforderungen
 Uns allen dreien fehlt die Erfahrung im Programmieren. Daher war die Grundherausforderung schon gegeben. Der Aufbau des PHPs wurde im Präsenzunterricht gut erklärt und funktionierte daher sehr gut. Der ganze Aufbau der Seite in HTML, CSS und JavaScript war exponentiell schwieriger. Mithilfe von ChatGPT konnten wir aber sowhol eine tolle Seite erstellen, als auch viel lernen. Auch hat uns das GitHub Repository, als es eingerichtet war, ermöglicht, zusammen an der Seite zu arbeiten. 
-![image](https://github.com/MisterArthur/Semesterprojekt/assets/145985514/0843f896-3f2f-4eb1-9247-ef65a07a6cde)
